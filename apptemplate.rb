@@ -81,7 +81,12 @@ git :commit => "-aqm 'Install twitter bootstrap and simple_form'"
 
 # install authentication and authorization
 generate 'devise:install'
-generate 'cancan:install'
+generate 'cancan:ability'
+
+inject_into_file "app/controllers/application_controller.rb", :before => "\nend" do
+  "\n\n  rescue_from CanCan::AccessDenied do |exception|\n    redirect_to root_url\n  end\n\n"
+end
+
 git :add => '.'
 git :commit => "-aqm 'Install devise and cancan'"
 
