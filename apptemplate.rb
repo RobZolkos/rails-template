@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'will_paginate'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-will_paginate'
+gem 'medown', :git => "https://RobZolkos@github.com/RobZolkos/Medown.git"
 
 # add gems for production environment
 gem 'unicorn',            :group => :production
